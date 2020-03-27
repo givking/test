@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+//测试修改
 /* @FeignClient(name = "cloud-provider", fallbackFactory = FeignClientFallbackFactory.class) */
 @FeignClient(name = "cloud-provider")
 public interface UserFeignClient {
