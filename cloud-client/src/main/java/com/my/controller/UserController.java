@@ -18,7 +18,7 @@ public class UserController {
     @GetMapping("/user/{id}")
     public User findById(@PathVariable Long id) {
         if(id==COM){
-            System.out.println("good");
+            System.out.println("good222");
         }
         System.out.println("----------aabbccff"+id);
         return userFeignClient.findById(id);
