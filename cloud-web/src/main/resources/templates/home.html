@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script th:src="@{/static/js/jquery.min.js}"></script>-->
+    <script src="../static/js/jquery.min.js"></script>
+</head>
+<body>
+    <h1>这是home页面啊</h1>
+    <button id="btn">按钮2</button>
+</body>
+<script>
+    $(document).ready(function () {
+        // alert(123);
+        // test();
+        $("#btn").click(function(){
+            alert("点击按钮2")
+            $.post("http://localhost:8082/test/2",function(data){
+                alert("Data: " + data);
+            });
+        });
+    })
+    function test() {
+        var anObject = {one: "中国", two: "123", three: 3};//对json数组each
+        var query="?";
+        $.each(anObject, function (name, value) {
+            // alert(name);
+            // alert(value);
+            query+=name+"="+value+"&"
+        });
+        query = query.substring(0,query.length-1);
+        alert(query)
+    }
+</script>
+</html>

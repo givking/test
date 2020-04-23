@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script th:src="@{/static/js/jquery.min.js}"></script>-->
+    <script src="../static/js/jquery.min.js"></script>
+</head>
+<body>
+    <h1>这是web层页面啊a</h1>
+    <button id="btn1">会出现跨域</button>
+    <button id="btn2">按钮2</button>
+    <button id="btn3">按钮3</button>
+</body>
+<script>
+    $(document).ready(function () {
+        // alert(123);
+        // test();
+        $("#btn1").click(function(){
+            alert("点击按钮")
+            $.post("http://localhost:9006/consumer/test/4",function(data){
+                alert("Data: " + data);
+            });
+        });
+        $("#btn2").click(function(){
+            alert("点击按钮")
+            jsonpGet()
+        });
+    })
+    function test() {
+        var anObject = {one: "中国", two: "123", three: 3};//对json数组each
+        var query="?";
+        $.each(anObject, function (name, value) {
+            // alert(name);
+            // alert(value);
+            query+=name+"="+value+"&"
+        });
+        query = query.substring(0,query.length-1);
+        alert(query)
+    }
+    function jsonpGet(){
+        $.ajax({
+            url:'http://127.0.0.1:8080/test',
+            type:'GET',
+            dataType:'jsonp',//请求方式为jsonp
+            jsonp: "callback",
+            jsonpCallback:"userHandler",
+            success: function(data){
+            },
+            error: function(data){
+                alert(data.status);//调用状态
+            }
+        });
+    }
+</script>
+</html>

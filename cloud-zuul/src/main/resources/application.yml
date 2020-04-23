@@ -1,0 +1,16 @@
+server:
+  port: 9006
+spring:
+  application:
+    name: cloud-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.2.192:9999/eureka/
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    cloud-client: /consumer/**
+    cloud-provider: /provider/**
+  ignored-services: '*'

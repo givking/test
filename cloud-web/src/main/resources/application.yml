@@ -1,0 +1,6 @@
+spring:
+  thymeleaf:
+    cache: false #关闭缓存
+    prefix: classpath:/templates/ #调整页面路径
+  mvc:
+    static-path-pattern: /static/**
