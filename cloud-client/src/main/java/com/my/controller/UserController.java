@@ -5,6 +5,7 @@ import com.my.feign.UserFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,17 +16,14 @@ public class UserController {
     public static final long COM=5;
     @Autowired
     private UserFeignClient userFeignClient;
-    @GetMapping("/user/{id}")
+    @RequestMapping("/user/{id}")
     public User findById(@PathVariable Long id) {
-        if(id==COM){
-            System.out.println("good222");
-        }
-        System.out.println("----------aabbccff"+id);
+        System.out.println("----------即将传入远程调用id："+id);
         return userFeignClient.findById(id);
     }
-    @GetMapping("/test/{id}")
+    @RequestMapping("/test/{id}")
     public String test(@PathVariable Long id) {
-        System.out.println("----------testabc"+id);
+        System.out.println("----------打印id："+id);
         return id.toString();
     }
 
