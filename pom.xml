@@ -18,20 +18,21 @@
 
     <dependencies>
         <!--添加热部署-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-devtools</artifactId>-->
-<!--            <optional>true</optional>-->
-<!--            <scope>true</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>true</scope>
+        </dependency>
     </dependencies>
 
     <modules>
-        <module>cloud-client</module>
+        <module>cloud-consumer</module>
         <module>cloud-provider</module>
-<!--        <module>cloud-discovery</module>-->
+        <module>cloud-eureka</module>
         <module>cloud-zuul</module>
         <module>cloud-web</module>
+        <module>cloud-config</module>
     </modules>
 
     <build>
