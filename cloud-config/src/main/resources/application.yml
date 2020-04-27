@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: cloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+          search-paths:
+          username:
+          password:
+server:
+  port: 8005
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.2.133:9999/eureka/
+      #defaultZone: http://user:123456@localhost:8080/eureka/      #服务注册中信地址，含有BASIC认证的用户名和密码
