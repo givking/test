@@ -2,18 +2,28 @@ server:
   port: 8082
 spring:
   application:
-    name: cloud-client
+    name: cloud-consumer
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.2.192:9999/eureka/
+      defaultZone: http://192.168.2.143:9999/eureka/
 #      defaultZone: http://user:123456@localhost:8080/eureka/      #服务注册中信地址，含有BASIC认证的用户名和密码
   instance:
     prefer-ip-address: true         #将IP注册到服务注册中心
 
-#放开所有节点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+feign:
+  client:
+    config:
+      cloud-provider:
+        connectTimeout: 3000
+        readTimeout: 3000
+        loggerLevel: basic
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000 # 设置hystrix的超时时间为3000ms, 之后才调用降级方

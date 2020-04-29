@@ -5,14 +5,18 @@ spring:
     config:
       server:
         git:
-          uri:
-          search-paths:
-          username:
-          password:
+          uri: https://github.com/givking/test
+          search-paths: /cloud-config/src/main/resources/test
+          username: givking
+          password: g125311899
+#  profiles:
+#    active: native
 server:
   port: 8005
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.2.133:9999/eureka/
-      #defaultZone: http://user:123456@localhost:8080/eureka/      #服务注册中信地址，含有BASIC认证的用户名和密码
+      defaultZone: http://192.168.2.107:9999/eureka/
+  #      defaultZone: http://user:123456@localhost:8080/eureka/      #服务注册中信地址，含有BASIC认证的用户名和密码
+  instance:
+    prefer-ip-address: true         #将IP注册到服务注册中心
