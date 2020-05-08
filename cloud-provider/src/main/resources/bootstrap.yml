@@ -1,0 +1,13 @@
+#spring:
+#  cloud:
+#    config:
+#      name: test1
+#      profile: dev
+#      label: master
+#      discovery:
+#        enabled: true
+#        service-id: cloud-config
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://192.168.2.107:9999/eureka/
